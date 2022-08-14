@@ -77,7 +77,7 @@ export default class PortfolioManager extends Component {
     }
 
     getPortfolioItems() {
-        axios.get("https://seantownz.devcamp.space/portfolio/portfolio_items", {
+        axios.get("https://seantownz.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", {
             withCredentials: true
         })
             .then(response => {
@@ -100,7 +100,7 @@ export default class PortfolioManager extends Component {
                 <div className="left-column">
                     <PortfolioForm
                        handleNewFormSubmission={this.handleNewFormSubmission}
-                       handleEditFormSubmission={this.handleEditFormSubmissionS}
+                       handleEditFormSubmission={this.handleEditFormSubmission}
                         handleFormSubmissionError={this.handleFormSubmissionError}
                         clearPortfolioToEdit={this.clearPortfolioToEdit}
                         portfolioToEdit={this.state.portfolioToEdit}
@@ -114,6 +114,6 @@ export default class PortfolioManager extends Component {
                     />
                 </div>
             </div>
-        )
+        );
     }
 }
